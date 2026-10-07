@@ -68,11 +68,11 @@
 
   <h2>Security of our servers</h2>
   <ul>
-    <li>All traffic is encrypted (HTTPS). Passwords are stored only as salted hashes.</li>
+    <li>All traffic is encrypted (HTTPS). Passwords are stored only as salted bcrypt hashes.</li>
     <li>Requests are rate-limited; repeated failed sign-ins lock the account for 15 minutes; attacks are
     logged.</li>
     <li>Secrets and keys live only in the server's environment, never in the app or in source control.</li>
-    <li>The database is reachable only by our server, not by the app or the public internet.</li>
+    <li>The app never connects to the database. Only our server can, with credentials held in its environment, over an encrypted connection.</li>
   </ul>
 
   <h2>Retention</h2>
